@@ -1,6 +1,5 @@
 let numbersCount;
 let isNumbersCountPrime;
-let secondPower;
 let fiboNums = [0, 1]
 let fiboCurrentIndex;
 let isInFibo;
@@ -26,10 +25,9 @@ for (let i = 0; i < 100; i++) {
         numbersCount = 1
     }
 
-    secondPower = numbersCount ** 2
     isNumbersCountPrime = true
-    for (let k = 2; k < secondPower; k++) {
-        if (isNumbersCountPrime && numbersCount !== k) {
+    for (let k = 2; k < numbersCount; k++) {
+        if (isNumbersCountPrime) {
             isNumbersCountPrime = numbersCount % k !== 0;
         }
     }
@@ -37,7 +35,7 @@ for (let i = 0; i < 100; i++) {
         isNumbersCountPrime = false
     }
 
-    isInFibo = fiboNums.find(number => number === i)
+    isInFibo = fiboNums.some(number => number === i)
 
     if (isNumbersCountPrime && isInFibo) {
         console.log(i)
